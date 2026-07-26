@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Como → Alps → Orta · July 29 – Aug 11, 2026</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Como → Orta">
+<meta name="theme-color" content="#FAFAF6">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF6;
+    --ink:#1C2630;
+    --ink-soft:#5C6772;
+    --rule:#E3E2DA;
+    --rail:#D9402E;        /* transit days */
+    --como:#28618F;        /* Lake Como */
+    --engadin:#3C6B52;     /* Pontresina */
+    --murren:#4C5E75;      /* Mürren */
+    --orta:#B07A2A;        /* Lago d'Orta */
+    --card:#FFFFFF;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --sans:'IBM Plex Sans',-apple-system,sans-serif;
+    --display:'Archivo',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:44px 24px 0;max-width:980px;margin:0 auto}
+  .hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rail);font-weight:600}
+  .hero h1{font-family:var(--display);font-weight:880;font-stretch:115%;font-size:clamp(36px,7.5vw,76px);line-height:1.02;letter-spacing:-.02em;margin:10px 0 8px}
+  .hero h1 .thin{font-weight:500;font-stretch:80%;color:var(--ink-soft)}
+  .hero .sub{font-size:16px;color:var(--ink-soft);max-width:560px}
+  .hero .dates{font-family:var(--mono);font-size:13px;margin-top:14px;color:var(--ink)}
+  .hero .dates b{color:var(--rail)}
+  @media(max-width:560px){.hero{padding:30px 18px 0}.hero .dates{font-size:11.5px}}
+
+  /* ---------- ROUTE LINE ---------- */
+  .routewrap{max-width:980px;margin:30px auto 0;padding:0 24px}
+  .route{display:flex;align-items:flex-start;position:relative;padding:18px 0 8px}
+  .route::before{content:"";position:absolute;left:4%;right:4%;top:29px;height:4px;background:var(--ink);border-radius:2px}
+  .stop{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;cursor:pointer;text-decoration:none;color:var(--ink);padding:0 2px}
+  .stop .dot{width:18px;height:18px;border-radius:50%;background:var(--paper);border:4px solid var(--ink);position:relative;z-index:1;margin-bottom:8px;transition:transform .15s}
+  .stop:hover .dot{transform:scale(1.25)}
+  .stop.c-como .dot{border-color:var(--como)}
+  .stop.c-engadin .dot{border-color:var(--engadin)}
+  .stop.c-murren .dot{border-color:var(--murren)}
+  .stop.c-orta .dot{border-color:var(--orta)}
+  .stop.c-plane .dot{border-color:var(--rail);border-radius:4px;transform:rotate(45deg)}
+  .stop.c-plane:hover .dot{transform:rotate(45deg) scale(1.2)}
+  .stop .name{font-family:var(--display);font-weight:740;font-size:15px;line-height:1.15}
+  .stop .meta{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-top:3px}
+  @media(max-width:640px){
+    .routewrap{padding:0 12px}
+    .stop .name{font-size:11px}
+    .stop .meta{font-size:9px}
+    .stop .dot{width:13px;height:13px;border-width:3px}
+    .route::before{top:24px}
+  }
+
+  /* ---------- STICKY NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,246,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);margin-top:26px}
+  nav .in{max-width:980px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:8px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  nav .in::-webkit-scrollbar{display:none}
+  nav a{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.04em;text-decoration:none;color:var(--ink-soft);padding:10px 14px;border-radius:99px;white-space:nowrap;border:1px solid transparent}
+  nav a:hover{color:var(--ink);border-color:var(--rule)}
+  nav a.n-como{color:var(--como)} nav a.n-engadin{color:var(--engadin)}
+  nav a.n-murren{color:var(--murren)} nav a.n-orta{color:var(--orta)} nav a.n-rail{color:var(--rail)}
+
+  /* ---------- CHAPTERS ---------- */
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px 80px}
+  @media(max-width:560px){.wrap{padding:0 14px 60px}}
+  section.chapter{margin-top:58px;scroll-margin-top:64px}
+  .ch-head{display:flex;align-items:baseline;gap:12px;border-bottom:4px solid var(--ch,#000);padding-bottom:10px;flex-wrap:wrap}
+  .ch-head .ch-no{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ch)}
+  .ch-head h2{font-family:var(--display);font-weight:850;font-stretch:110%;font-size:clamp(24px,4.5vw,40px);letter-spacing:-.015em}
+  .ch-head .ch-dates{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-left:auto}
+  @media(max-width:560px){.ch-head .ch-dates{margin-left:0;width:100%}}
+  .ch-note{margin-top:12px;color:var(--ink-soft);font-size:15px;max-width:640px}
+
+  /* ---------- DAY CARDS ---------- */
+  .day{display:grid;grid-template-columns:96px 1fr;gap:0 22px;margin-top:28px}
+  @media(max-width:560px){.day{grid-template-columns:1fr;gap:8px 0}}
+  .datecol{text-align:right;padding-top:2px}
+  @media(max-width:560px){
+    .datecol{text-align:left;display:flex;align-items:baseline;gap:8px}
+    .datecol .num{font-size:30px !important}
+  }
+  .datecol .dow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .datecol .num{font-family:var(--display);font-weight:880;font-size:42px;line-height:1;color:var(--ch);letter-spacing:-.03em}
+  .datecol .mon{font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+  .datecol .today{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;background:var(--ink);color:#fff;padding:3px 8px;border-radius:99px}
+  .daybody{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--ch);border-radius:10px;padding:16px 18px 14px;box-shadow:0 1px 2px rgba(28,38,48,.04)}
+  @media(max-width:560px){.daybody{padding:14px 14px 12px}}
+  .daytitle{font-family:var(--display);font-weight:760;font-size:18px;margin-bottom:2px}
+  .daysub{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+
+  /* event rows with rail line */
+  .ev{display:grid;grid-template-columns:60px 14px 1fr;align-items:baseline;position:relative;padding:8px 0}
+  .ev .t{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink);text-align:right;padding-right:10px}
+  .ev .t.soft{color:var(--ink-soft);font-weight:400}
+  .ev .pip{width:10px;height:10px;border-radius:50%;border:3px solid var(--ch);background:#fff;position:relative;top:1px;justify-self:center}
+  .ev .pip.hollow{border-color:var(--rule)}
+  .ev .what{padding-left:12px;font-size:15px}
+  .ev .what b{font-weight:600}
+  .ev .what .d{display:block;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+  .ev::before{content:"";position:absolute;left:calc(60px + 6px);top:0;bottom:0;width:2px;background:var(--rule)}
+  .ev:first-of-type::before{top:50%}
+  .ev:last-of-type::before{bottom:50%}
+  .ev.only::before{display:none}
+  @media(max-width:560px){
+    .ev{grid-template-columns:46px 14px 1fr}
+    .ev .t{font-size:11px;padding-right:5px}
+    .ev::before{left:calc(46px + 6px)}
+    .ev .what{padding-left:8px;font-size:14.5px}
+    .ev .what .d{font-size:13px}
+  }
+
+  /* chips */
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .chip{font-family:var(--mono);font-size:11.5px;font-weight:500;padding:7px 12px;border-radius:7px;border:1.5px dashed var(--rule);background:#fff;color:var(--ink);cursor:pointer;user-select:all;min-height:32px}
+  .chip:active{background:#f0efe8}
+  .chip:hover{border-color:var(--ch);color:var(--ch)}
+  .chip .lbl{color:var(--ink-soft);margin-right:4px}
+  .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:99px;margin-left:6px;vertical-align:2px}
+  .tag.dress{background:#1C2630;color:#fff}
+  .tag.cash{background:#FBEAC9;color:#8a5a00}
+  .tag.booked{background:#E4EFE7;color:#2c5e3f}
+  .tag.todo{background:#FDE3DF;color:#b02a17}
+  .tag.open{background:#EEF1F4;color:#5C6772}
+  .tag.tix{background:#E8EDF6;color:#3a5680}
+  @media(max-width:560px){.tag{margin-left:0;margin-top:4px;display:inline-block}}
+
+  /* connection chain (transfer days) */
+  .chain{margin:8px 0 4px;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+  .leg{display:grid;grid-template-columns:118px 1fr;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule);background:#fff}
+  .leg:last-child{border-bottom:none}
+  .leg .lt{font-family:var(--mono);font-size:12.5px;font-weight:600;white-space:nowrap}
+  .leg .lt .arr{color:var(--ink-soft);font-weight:400}
+  .leg .ld{font-size:13.5px}
+  .leg .ld .tn{font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+  .leg.warn{background:#FFF8EE}
+  .leg.lunch{background:#F4F8F3}
+  @media(max-width:560px){.leg{grid-template-columns:1fr;gap:3px;padding:10px 12px}}
+
+  /* info panels */
+  .panel{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:15px 18px;margin-top:18px}
+  .panel h3{font-family:var(--display);font-weight:760;font-size:15px;margin-bottom:6px;color:var(--ch)}
+  .panel p,.panel li{font-size:14px;color:var(--ink)}
+  .panel ul{padding-left:18px;margin-top:4px}
+  .panel li{margin-bottom:5px}
+  .panel .mono{font-family:var(--mono);font-size:12.5px}
+  .panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  @media(max-width:640px){.panel-grid{grid-template-columns:1fr}}
+  .panel-grid .panel{margin-top:0}
+
+  .wx{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;margin-top:8px}
+  .wx span b{font-weight:600}
+
+  footer{max-width:980px;margin:0 auto;padding:30px 24px 70px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-soft);text-align:center}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--ink);color:#fff;font-family:var(--mono);font-size:12.5px;padding:10px 18px;border-radius:99px;transition:transform .25s;z-index:99;max-width:88vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Cam &amp; Casey · Summer 2026</div>
+  <h1>Como <span class="thin">→</span> the Alps <span class="thin">→</span> Orta</h1>
+  <p class="sub">A wedding on Lake Como, the Bernina Express over the Alps, five nights under the Eiger, and a slow landing on Lago d'Orta.</p>
+  <div class="dates"><b>WED JUL 29</b> depart LAX · <b>TUE AUG 11</b> home · 13 nights</div>
+</header>
+
+<div class="routewrap">
+  <div class="route">
+    <a class="stop c-plane" href="#getting-there"><span class="dot"></span><span class="name">LAX ✈ MXP</span><span class="meta">via Munich</span></a>
+    <a class="stop c-como" href="#como"><span class="dot"></span><span class="name">Varenna</span><span class="meta">4 nts · wedding</span></a>
+    <a class="stop c-engadin" href="#engadin"><span class="dot"></span><span class="name">Pontresina</span><span class="meta">1 nt · Bernina</span></a>
+    <a class="stop c-murren" href="#murren"><span class="dot"></span><span class="name">Mürren</span><span class="meta">5 nts · Eiger</span></a>
+    <a class="stop c-orta" href="#orta"><span class="dot"></span><span class="name">Orta</span><span class="meta">2 nts</span></a>
+    <a class="stop c-plane" href="#home"><span class="dot"></span><span class="name">MXP ✈ LAX</span><span class="meta">via Montréal</span></a>
+  </div>
+</div>
+
+<nav><div class="in">
+  <a class="n-rail" href="#getting-there">✈ There</a>
+  <a class="n-como" href="#como">Como</a>
+  <a class="n-engadin" href="#engadin">Pontresina</a>
+  <a class="n-murren" href="#murren">Mürren</a>
+  <a class="n-orta" href="#orta">Orta</a>
+  <a class="n-rail" href="#home">✈ Home</a>
+  <a href="#ref">Ref</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ============ CHAPTER 1: GETTING THERE ============ -->
+<section class="chapter" id="getting-there" style="--ch:var(--rail)">
+  <div class="ch-head">
+    <span class="ch-no">01</span>
+    <h2>Getting There</h2>
+    <span class="ch-dates">WED JUL 29 – THU JUL 30</span>
+  </div>
+  <p class="ch-note">LAX to Milan via Munich on Lufthansa, then a two-hour transfer up the lake to Varenna.</p>
+
+  <div class="day" data-date="2026-07-29">
+    <div class="datecol"><div class="dow">Wed</div><div class="num">29</div><div class="mon">JUL</div></div>
+    <div class="daybody">
+      <div class="daytitle">Departure day</div>
+      <div class="ev"><span class="t">15:00</span><span class="pip"></span><span class="what"><b>Park at QuikPark LAX</b><span class="d">6200 W 98th St</span>
+        <span class="chips"><button class="chip"><span class="lbl">QuikPark</span>117739895</button></span></span></div>
+      <div class="ev"><span class="t">17:30</span><span class="pip"></span><span class="what"><b>LAX → Munich</b> · Lufthansa<span class="d">Overnight flight · lands 13:35 Thursday</span></span></div>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-07-30">
+    <div class="datecol"><div class="dow">Thu</div><div class="num">30</div><div class="mon">JUL</div></div>
+    <div class="daybody">
+      <div class="daytitle">Munich → Milan → Varenna</div>
+      <div class="ev"><span class="t">15:30</span><span class="pip"></span><span class="what"><b>Munich → Milan MXP</b><span class="d">Arrives 16:40</span></span></div>
+      <div class="ev"><span class="t">17:15</span><span class="pip"></span><span class="what"><b>Transfeero pickup</b> (booked under Casey)<span class="d">~2 hr drive up the lake to Varenna</span>
+        <span class="chips"><button class="chip"><span class="lbl">Transfeero</span>78453673</button></span></span></div>
+      <div class="ev"><span class="t soft">eve</span><span class="pip hollow"></span><span class="what">Arrive Varenna · settle in, dinner on the lake</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 2: LAKE COMO ============ -->
+<section class="chapter" id="como" style="--ch:var(--como)">
+  <div class="ch-head">
+    <span class="ch-no">02</span>
+    <h2>Lake Como — Varenna</h2>
+    <span class="ch-dates">THU JUL 30 – MON AUG 3 · 4 NIGHTS</span>
+  </div>
+  <p class="ch-note">The wedding weekend. Four events, two dress codes, one boat day.</p>
+
+  <div class="day" data-date="2026-07-31">
+    <div class="datecol"><div class="dow">Fri</div><div class="num">31</div><div class="mon">JUL</div></div>
+    <div class="daybody">
+      <div class="daytitle">Boat day + White Party</div>
+      <div class="ev"><span class="t">10:00</span><span class="pip"></span><span class="what"><b>Como boat rental</b> · 10:00–14:00 <span class="tag cash">Cash · €500 total</span><span class="d">⚠ Arrive at the dock 20 minutes early (9:40)</span></span></div>
+      <div class="ev"><span class="t">18:00</span><span class="pip"></span><span class="what"><b>Wedding White Party</b> <span class="tag dress">Cocktail attire</span><span class="d">Olivedo Lido · Lido di Varenna</span></span></div>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-08-01">
+    <div class="datecol"><div class="dow">Sat</div><div class="num">1</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">The wedding</div>
+      <div class="ev"><span class="t soft">am</span><span class="pip hollow"></span><span class="what">Morning hike? <span class="tag open">Open</span></span></div>
+      <div class="ev"><span class="t">17:30</span><span class="pip"></span><span class="what"><b>Boat departs Varenna dock</b><span class="d">Don't miss it — it's the ride to the venue</span></span></div>
+      <div class="ev"><span class="t">18:00</span><span class="pip"></span><span class="what"><b>Wedding</b> until 2am <span class="tag dress">Black tie formal</span></span></div>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-08-02">
+    <div class="datecol"><div class="dow">Sun</div><div class="num">2</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Brunch + Bellagio dinner</div>
+      <div class="ev"><span class="t">12:00</span><span class="pip"></span><span class="what"><b>Wedding brunch</b> · until 16:00</span></div>
+      <div class="ev"><span class="t">19:30</span><span class="pip"></span><span class="what"><b>Dinner for 11 · Trattoria Baita Belvedere</b><span class="d">Bellagio · pack for the trains tomorrow</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 3: ENGADIN ============ -->
+<section class="chapter" id="engadin" style="--ch:var(--engadin)">
+  <div class="ch-head">
+    <span class="ch-no">03</span>
+    <h2>Engadin — Pontresina</h2>
+    <span class="ch-dates">MON AUG 3 – TUE AUG 4 · 1 NIGHT</span>
+  </div>
+  <p class="ch-note">The Bernina Express day — Lake Como to the high Alps in panorama class.</p>
+
+  <div class="day" data-date="2026-08-03">
+    <div class="datecol"><div class="dow">Mon</div><div class="num">3</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Varenna → Tirano → Pontresina</div>
+      <div class="chain">
+        <div class="leg"><span class="lt">10:25 <span class="arr">→ 11:52</span></span><span class="ld"><b>Varenna-Esino → Tirano</b> <span class="tag tix">QR in Gmail</span><br><span class="tn">Regional 2818 · 1st class · scenic along Como &amp; Valtellina</span></span></div>
+        <div class="leg lunch"><span class="lt">11:52–13:17</span><span class="ld"><b>Lunch layover in Tirano · Posteria del Rosso</b></span></div>
+        <div class="leg"><span class="lt">13:17 <span class="arr">→ 15:30</span></span><span class="ld"><b>Tirano → Pontresina</b> · Bernina Express <span class="tag tix">Printed tickets</span><br><span class="tn">RhB Train 974 · Carriage 11, 1st class panorama, seats 43 &amp; 45</span></span></div>
+        <div class="leg warn"><span class="lt">⚠ 15:30</span><span class="ld"><b>Get off at Pontresina</b> — one stop <i>before</i> St. Moritz (train terminates 15:45)</span></div>
+      </div>
+      <div class="chips" style="margin-bottom:10px">
+        <button class="chip"><span class="lbl">ItaliaRail</span>M8FKPF0LD3FUH</button>
+        <button class="chip"><span class="lbl">RhB</span>2731811-1</button>
+      </div>
+      <div class="ev"><span class="t">15:30</span><span class="pip"></span><span class="what"><b>Check in: Hotel Walther</b><span class="d">Via Maistra 215 · check-in from 15:00 · booked via Steph, Coastline Travel</span>
+        <span class="chips"><button class="chip"><span class="lbl">Walther</span>22754SF001159</button></span></span></div>
+      <div class="ev"><span class="t">16:30</span><span class="pip hollow"></span><span class="what">Afternoon hike ~16:30–18:30 <span class="tag open">AllTrails list saved</span><span class="d">Sunset isn't until 20:45 — no rush</span></span></div>
+      <div class="ev"><span class="t">20:15</span><span class="pip"></span><span class="what"><b>Dinner · Steinbock Gaststuben at Hotel Walther</b> <span class="tag booked">Confirmed</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 4: MÜRREN ============ -->
+<section class="chapter" id="murren" style="--ch:var(--murren)">
+  <div class="ch-head">
+    <span class="ch-no">04</span>
+    <h2>Mürren</h2>
+    <span class="ch-dates">TUE AUG 4 – SUN AUG 9 · 5 NIGHTS</span>
+  </div>
+  <p class="ch-note">Car-free village on a cliff shelf facing the Eiger, Mönch and Jungfrau. The long travel day gets you there; then it's hikes, saunas, and a via ferrata.</p>
+
+  <div class="day" data-date="2026-08-04">
+    <div class="datecol"><div class="dow">Tue</div><div class="num">4</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">The big train day — Pontresina → Mürren (~7 hrs)</div>
+      <div class="daysub">Slow breakfast first; train at 10:30. Saver Day Pass for the Chur → Lauterbrunnen legs is in the SBB Mobile app.</div>
+      <div class="chain">
+        <div class="leg"><span class="lt">10:30 <span class="arr">→ 12:31</span></span><span class="ld"><b>Pontresina → Chur</b> <span class="tag tix">Printed tickets</span><br><span class="tn">RhB Train 950 · conf 2804862-1</span></span></div>
+        <div class="leg"><span class="lt">13:08 <span class="arr">→ 14:22</span></span><span class="ld"><b>Chur → Zürich HB</b> <span class="tn">· IC 3 572 (dir. Zürich HB)</span></span></div>
+        <div class="leg"><span class="lt">14:32 <span class="arr">→ 15:28</span></span><span class="ld"><b>Zürich HB → Bern</b> <span class="tn">· IC 1 722 (dir. Genève-Aéroport) · 10-min connection</span></span></div>
+        <div class="leg"><span class="lt">15:34 <span class="arr">→ 16:05</span></span><span class="ld"><b>Bern → Spiez</b> <span class="tn">· IC 6 625 (dir. Domodossola) · 6-min connection</span></span></div>
+        <div class="leg"><span class="lt">16:06 <span class="arr">→ 16:26</span></span><span class="ld"><b>Spiez → Interlaken Ost</b> <span class="tn">· RE 9 4228 · 1-min cross-platform hop!</span></span></div>
+        <div class="leg warn"><span class="lt">16:34 <span class="arr">→ 16:56</span></span><span class="ld"><b>Interlaken Ost → Lauterbrunnen</b> <span class="tn">· R 62 177 (BOB, blue &amp; yellow)</span><br>⚠ Board the <b>front</b> of the train — the back splits at Zweilütschinen for Grindelwald</span></div>
+      </div>
+      <div class="panel" style="margin-top:10px">
+        <h3>Last leg up to Mürren — two options</h3>
+        <ul>
+          <li><b>Option 1 (faster, ~20 min):</b> Lauterbrunnen station → gondola to Grütschalp → small train to Mürren. Gondola 50% off with Saver Day Pass.</li>
+          <li><b>Option 2 (~30 min):</b> Bus toward Stechelberg to Schilthornbahn station → cable car via Gimmelwald up to Mürren.</li>
+        </ul>
+      </div>
+      <div class="ev" style="margin-top:8px"><span class="t">18:00</span><span class="pip"></span><span class="what"><b>Check in: Hotel Eiger Mürren</b><span class="d">Double room, balcony, mountain views · CHF 2'117.25 for the stay</span>
+        <span class="chips"><button class="chip"><span class="lbl">Eiger</span>22851SKB7923</button></span></span></div>
+      <div class="ev"><span class="t">19:30</span><span class="pip"></span><span class="what"><b>Dinner at Hotel Eiger</b> <span class="tag booked">Confirmed</span></span></div>
+    </div>
+  </div>
+
+  <div class="panel-grid">
+    <div class="panel">
+      <h3>Mürren conditions</h3>
+      <div class="wx">
+        <span>↑ <b>65°F</b> high</span><span>↓ <b>50°F</b> low</span>
+        <span>☀ <b>6:30</b> sunrise</span><span>☾ <b>20:30</b> sunset</span>
+        <span><b>14 hrs</b> daylight</span>
+      </div>
+      <p style="margin-top:8px;color:var(--ink-soft);font-size:13.5px">Pack layers — alpine mornings are crisp even in August.</p>
+    </div>
+    <div class="panel">
+      <h3>Hotel Eiger includes</h3>
+      <ul>
+        <li>Buffet champagne breakfast</li>
+        <li>Indoor pool with Jacuzzi + swim-wear sauna</li>
+        <li>Wellness area: Finnish sauna &amp; bio sauna</li>
+        <li>Mountain-view recreation area, gym, free Wi-Fi</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-08-05">
+    <div class="datecol"><div class="dow">Wed</div><div class="num">5</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">North Face Trail</div>
+      <div class="ev"><span class="t soft">am</span><span class="pip"></span><span class="what"><b>North Face Trail from Allmendhubel</b> · 2.5–3 hrs<span class="d">Passes working "alps" (summer farms) selling fresh cheese and yogurt, with straight-on views of the Eiger, Mönch &amp; Jungfrau. Fewer crowds than the main routes.</span></span></div>
+      <div class="ev"><span class="t soft">noon</span><span class="pip hollow"></span><span class="what">Lunch on the trail</span></div>
+      <div class="ev"><span class="t soft">pm</span><span class="pip hollow"></span><span class="what">Afternoon hike from Allmendhubel</span></div>
+      <div class="ev"><span class="t soft">eve</span><span class="pip"></span><span class="what"><b>Dinner at Restaurant Suppenalp</b> on the way back down<span class="d">~45-minute walk back to Mürren afterward — bring a layer &amp; headlamp-ish phone light</span></span></div>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-08-06">
+    <div class="datecol"><div class="dow">Thu</div><div class="num">6</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Easy day</div>
+      <div class="ev"><span class="t soft">am</span><span class="pip hollow"></span><span class="what">Easy hike — train up to another town? <span class="tag open">AllTrails saved hikes</span></span></div>
+      <div class="ev"><span class="t soft">pm</span><span class="pip"></span><span class="what"><b>Spa afternoon</b><span class="d">Sauna · Kneipp bath · Jacuzzi · do absolutely nothing</span></span></div>
+      <div class="ev"><span class="t">19:00</span><span class="pip"></span><span class="what"><b>Dinner at Hotel Eiger</b> <span class="tag booked">Confirmed</span></span></div>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-08-07">
+    <div class="datecol"><div class="dow">Fri</div><div class="num">7</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Via Ferrata day</div>
+      <div class="ev"><span class="t">09:10</span><span class="pip"></span><span class="what"><b>Via Ferrata: Mürren → Gimmelwald</b> <span class="tag booked">Booked</span><span class="d">09:10–14:10 · cliffside cables above the Lauterbrunnen valley</span></span></div>
+      <div class="ev"><span class="t">14:15</span><span class="pip"></span><span class="what"><b>Lunch on the patio at Pension Gimmelwald</b></span></div>
+      <div class="ev"><span class="t soft">pm</span><span class="pip hollow"></span><span class="what">Cable car back up to Mürren</span></div>
+      <div class="ev"><span class="t soft">eve</span><span class="pip hollow"></span><span class="what">Dinner <span class="tag open">Ask hotel for a rec</span></span></div>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-08-08">
+    <div class="datecol"><div class="dow">Sat</div><div class="num">8</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Last full alpine day</div>
+      <div class="ev"><span class="t soft">day</span><span class="pip hollow"></span><span class="what">Full-day hike <span class="tag open">Open</span></span></div>
+      <div class="ev"><span class="t">19:30</span><span class="pip"></span><span class="what"><b>Dinner at Hotel Blumenthal</b> <span class="tag booked">Confirmed</span><span class="d">Pack tonight — early gondola tomorrow</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 5: LAGO D'ORTA ============ -->
+<section class="chapter" id="orta" style="--ch:var(--orta)">
+  <div class="ch-head">
+    <span class="ch-no">05</span>
+    <h2>Lago d'Orta — Orta San Giulio</h2>
+    <span class="ch-dates">SUN AUG 9 – TUE AUG 11 · 2 NIGHTS</span>
+  </div>
+  <p class="ch-note">Back over the Alps and down to the quiet little lake west of Maggiore. Two days of pool, beach, and aperitivo before the flight home.</p>
+
+  <div class="day" data-date="2026-08-09">
+    <div class="datecol"><div class="dow">Sun</div><div class="num">9</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Mürren → Orta San Giulio</div>
+      <div class="daysub">Depart hotel ~8am. Gondola down runs from 6:00, every 30 minutes.</div>
+      <div class="chain">
+        <div class="leg"><span class="lt">09:01 <span class="arr">→ 11:12</span></span><span class="ld"><b>Lauterbrunnen → Domodossola</b> <span class="tn">· Swiss Rail · booked</span></span></div>
+        <div class="leg warn"><span class="lt">~midday</span><span class="ld"><b>Domodossola → Orta-Miasino</b> <span class="tag todo">Still to book — Trenitalia</span></span></div>
+      </div>
+      <div class="ev"><span class="t soft">13:00</span><span class="pip"></span><span class="what"><b>Check in: Hotel San Rocco</b> · village-facing room<span class="d">Roof garden with Jacuzzi &amp; solarium · private dock</span>
+        <span class="chips"><button class="chip"><span class="lbl">San Rocco</span>12898AV21306</button></span></span></div>
+      <div class="ev"><span class="t soft">lunch</span><span class="pip"></span><span class="what"><b>Osteria Trattoria Speranza</b></span></div>
+      <div class="ev"><span class="t soft">pm</span><span class="pip hollow"></span><span class="what">Pool afternoon</span></div>
+      <div class="ev"><span class="t soft">eve</span><span class="pip"></span><span class="what"><b>Aperitivo at Enoteca re di Coppe</b></span></div>
+      <div class="ev"><span class="t">19:30</span><span class="pip"></span><span class="what"><b>Dinner at La Darbia</b> <span class="tag booked">WhatsApp res</span></span></div>
+    </div>
+  </div>
+
+  <div class="day" data-date="2026-08-10">
+    <div class="datecol"><div class="dow">Mon</div><div class="num">10</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Lake day</div>
+      <div class="ev"><span class="t soft">am</span><span class="pip hollow"></span><span class="what">Morning walk, hike… or paddle boats <span class="tag open">Open</span></span></div>
+      <div class="ev"><span class="t soft">lunch</span><span class="pip"></span><span class="what"><b>Lunch at Filo E Fieno</b></span></div>
+      <div class="ev"><span class="t soft">pm</span><span class="pip"></span><span class="what"><b>Hydrogen Lake Beach</b> (hotel guests only)<span class="d">White sand, crystal water, view of Isola San Giulio · 3-min boat from the hotel pier (or 15 min by car) · in Pella</span></span></div>
+      <div class="ev"><span class="t soft">eve</span><span class="pip hollow"></span><span class="what">Final dinner in Italy <span class="tag open">Open</span></span></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Orta back-pocket list</h3>
+    <ul>
+      <li><b>Al Boeuc</b> — wine bar with snacks</li>
+      <li><b>Locanda di Orta</b> — call for a reservation</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 6: HOME ============ -->
+<section class="chapter" id="home" style="--ch:var(--rail)">
+  <div class="ch-head">
+    <span class="ch-no">06</span>
+    <h2>Home</h2>
+    <span class="ch-dates">TUE AUG 11</span>
+  </div>
+
+  <div class="day" data-date="2026-08-11">
+    <div class="datecol"><div class="dow">Tue</div><div class="num">11</div><div class="mon">AUG</div></div>
+    <div class="daybody">
+      <div class="daytitle">Orta → Malpensa → LAX</div>
+      <div class="ev"><span class="t">07:30</span><span class="pip"></span><span class="what"><b>Transfeero pickup</b> — early one!<span class="d">~1 hr drive to Malpensa</span>
+        <span class="chips"><button class="chip"><span class="lbl">Transfeero</span>78453680</button></span></span></div>
+      <div class="ev"><span class="t">12:20</span><span class="pip"></span><span class="what"><b>MXP → Montréal YUL</b><span class="d">Arrives 15:05</span></span></div>
+      <div class="ev"><span class="t">16:55</span><span class="pip"></span><span class="what"><b>YUL → LAX</b><span class="d">Lands 19:54 · car is at QuikPark</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK REFERENCE ============ -->
+<section class="chapter" id="ref" style="--ch:var(--ink)">
+  <div class="ch-head">
+    <span class="ch-no">REF</span>
+    <h2>Quick Reference</h2>
+  </div>
+  <div class="panel-grid">
+    <div class="panel">
+      <h3>All confirmation numbers</h3>
+      <ul class="mono" style="list-style:none;padding-left:0">
+        <li>QuikPark LAX — <b>117739895</b></li>
+        <li>Transfeero (arrival) — <b>78453673</b></li>
+        <li>ItaliaRail Varenna→Tirano — <b>M8FKPF0LD3FUH</b></li>
+        <li>RhB Bernina Express — <b>2731811-1</b></li>
+        <li>Hotel Walther — <b>22754SF001159</b></li>
+        <li>RhB Pontresina→Chur — <b>2804862-1</b></li>
+        <li>Hotel Eiger Mürren — <b>22851SKB7923</b></li>
+        <li>Hotel San Rocco — <b>12898AV21306</b></li>
+        <li>Transfeero (departure) — <b>78453680</b></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Where your tickets live</h3>
+      <ul>
+        <li><b>Gmail (QR code)</b> — ItaliaRail Varenna → Tirano</li>
+        <li><b>Printed</b> — Bernina Express · Pontresina → Chur</li>
+        <li><b>SBB Mobile app</b> — Saver Day Pass (Chur → Lauterbrunnen)</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Don't forget</h3>
+      <ul>
+        <li><b>€500 cash</b> for the boat rental · be at the dock <b>9:40</b> (Fri Jul 31)</li>
+        <li><b>Cocktail attire</b> for the White Party · <b>black tie</b> for the wedding</li>
+        <li>Get off the Bernina at <b>Pontresina (15:30)</b>, not St. Moritz</li>
+        <li>Board the <b>front</b> of the Lauterbrunnen train at Interlaken Ost</li>
+        <li>Saver Day Pass = 50% off the Grütschalp gondola (Aug 4)</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Still to book / decide</h3>
+      <ul>
+        <li><span class="tag todo">To book</span> Domodossola → Orta-Miasino on Trenitalia (Aug 9)</li>
+        <li>Friday dinner in Mürren — ask Hotel Eiger for a rec (Aug 7)</li>
+        <li>Final dinner in Orta (Aug 10) — Al Boeuc or Locanda di Orta as backups</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>Itinerary by Casey · visualized for the visual one · tap any confirmation number to copy it</footer>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+  // tap-to-copy confirmation chips
+  document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var code = chip.childNodes[chip.childNodes.length-1].textContent.trim();
+      navigator.clipboard && navigator.clipboard.writeText(code).then(function(){
+        var t = document.getElementById('toast');
+        t.textContent = 'Copied ' + code;
+        t.classList.add('show');
+        clearTimeout(t._h);
+        t._h = setTimeout(function(){ t.classList.remove('show'); }, 1600);
+      });
+    });
+  });
+
+  // highlight today while traveling
+  (function(){
+    var now = new Date();
+    var y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0'), d = String(now.getDate()).padStart(2,'0');
+    var key = y + '-' + m + '-' + d;
+    var el = document.querySelector('.day[data-date="' + key + '"]');
+    if(el){
+      var badge = document.createElement('div');
+      badge.className = 'today';
+      badge.textContent = 'TODAY';
+      el.querySelector('.datecol').appendChild(badge);
+      el.querySelector('.daybody').style.boxShadow = '0 0 0 2px var(--ch)';
+    }
+  })();
+</script>
+</body>
+</html>
